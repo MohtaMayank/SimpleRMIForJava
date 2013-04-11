@@ -1,8 +1,6 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.io;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class represents a split of input data which should be submitted to a Mapper
@@ -13,7 +11,7 @@ import java.util.List;
  */
 public class Split implements Serializable {
 
-    final static long MAX_SPLIT_SIZE = 80000;
+    public final static long MAX_SPLIT_SIZE = 80000;
 	FilePartition filePartition;
 	
 	public Split(FilePartition fp) {

@@ -1,4 +1,4 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,8 +9,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import cmu.cs.distsystems.hw3.WorkerHeartbeatResponse.Cmd;
 
 /**
  * Launch JVM if required. Send the Map or the Reduce Task to the JVM. 
@@ -27,8 +25,8 @@ import cmu.cs.distsystems.hw3.WorkerHeartbeatResponse.Cmd;
 
 public class TaskManager implements Runnable {
 
-	//public static final String TASK_RUNNER_CLASS = "cmu.cs.distsystems.hw3.TaskRunnerDummy";
-	public static final String TASK_RUNNER_CLASS = "cmu.cs.distsystems.hw3.TaskRunner";
+	//public static final String TASK_RUNNER_CLASS = "cmu.cs.distsystems.hw3.framework.TaskRunnerDummy";
+	public static final String TASK_RUNNER_CLASS = "cmu.cs.distsystems.hw3.framework.TaskRunner";
 	public static final int ACCEPT_TIMEOUT = 4000;
 	
 	private TaskTracker parentTT;
@@ -135,7 +133,7 @@ public class TaskManager implements Runnable {
 		}
 		try {
 			
-			String jar = "/home/mayank/DistributedSystems/HW3/simple-hadoop.jar";
+			String jar = this.parentTT.getClusterConfig().getSimplemrJar();
 			String className = TASK_RUNNER_CLASS;
 		
 			String javaHome = System.getProperty("java.home");

@@ -1,20 +1,26 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.examples;
+
+import cmu.cs.distsystems.hw3.io.Context;
+import cmu.cs.distsystems.hw3.framework.Job;
+import cmu.cs.distsystems.hw3.framework.JobClient;
+import cmu.cs.distsystems.hw3.mapred.Mapper;
+import cmu.cs.distsystems.hw3.mapred.Reducer;
 
 public class ExampleProg1 {
 
 	public static void main(String[] args) {
 		Job job = new Job();
 		
-		job.setMapClass("cmu.cs.distsystems.hw3.Ex1Map");
-		job.setCombinerClass("cmu.cs.distsystems.hw3.Ex1Combiner");
-		job.setReduceClass("cmu.cs.distsystems.hw3.Ex1Reducer");
+		job.setMapClass("cmu.cs.distsystems.hw3.examples.Ex1Map");
+		job.setCombinerClass("cmu.cs.distsystems.hw3.examples.Ex1Combiner");
+		job.setReduceClass("cmu.cs.distsystems.hw3.examples.Ex1Reducer");
 		
 		//TODO: implement this ... currently not implemented
 		job.setConfigFile("/home/mayank/DistributedSystems/HW3/cluster_config.txt");
 		
-		job.setJar("/home/mayank/DistributedSystems/HW3/example1.jar");
-		job.setInputDir("/home/mayank/DistributedSystems/HW3/input/");
-		job.setOutputDir("/home/mayank/DistributedSystems/HW3/output/");
+		job.setJar(args[0]);
+		job.setInputDir(args[1]);
+		job.setOutputDir(args[2]);
 		
 		/*job.setJar("/Users/mimighostipad/Desktop/HW3/DistributedSystems.jar");
 		job.setInputDir("/Users/mimighostipad/Desktop/HW3/input/");
@@ -61,7 +67,7 @@ class Ex1Reducer extends Reducer {
 	private static int debugCount = 0;
 	
     @Override
-    void reduce(String key, Iterable<String> values, Context context) {
+    public void reduce(String key, Iterable<String> values, Context context) {
         int num = 0;
         for(String value:values){
             num += Integer.parseInt(value);

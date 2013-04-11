@@ -1,4 +1,4 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.io;
 
 import java.io.Serializable;
 

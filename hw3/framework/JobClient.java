@@ -1,4 +1,7 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
+
+import cmu.cs.distsystems.hw3.io.FilePartition;
+import cmu.cs.distsystems.hw3.io.Split;
 
 import java.io.File;
 import java.io.IOException;

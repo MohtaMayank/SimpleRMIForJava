@@ -1,4 +1,6 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.io;
+
+import cmu.cs.distsystems.hw3.mapred.Record;
 
 import java.io.BufferedWriter;
 import java.io.File;

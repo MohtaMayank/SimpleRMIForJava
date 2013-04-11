@@ -1,4 +1,4 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,8 +8,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import cmu.cs.distsystems.hw3.JobStatus.JobState;
-import cmu.cs.distsystems.hw3.TaskTrackerHBResponse.Cmd;
+import cmu.cs.distsystems.hw3.framework.JobStatus.JobState;
 
 /**
  * JobTracker starts and maintains the MapReduce Job.

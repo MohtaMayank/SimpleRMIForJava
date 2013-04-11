@@ -1,4 +1,4 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import cmu.cs.distsystems.hw3.WorkerHeartbeatResponse.Cmd;
+import cmu.cs.distsystems.hw3.framework.WorkerHeartbeatResponse.Cmd;
 
 /**
  * Will be run as a separate JVM. In this JVM, the map or the reduce task will

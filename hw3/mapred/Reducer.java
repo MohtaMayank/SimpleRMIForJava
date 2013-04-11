@@ -1,4 +1,9 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.mapred;
+
+import cmu.cs.distsystems.hw3.io.AggregateTextRecordReader;
+import cmu.cs.distsystems.hw3.io.Context;
+import cmu.cs.distsystems.hw3.framework.ReduceTask;
+import cmu.cs.distsystems.hw3.io.TextRecordWriter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,9 +11,9 @@ import java.util.List;
 
 abstract public class Reducer {
 
-    ReduceTask reduceTask;
-    AggregateTextRecordReader reader;
-    Context context;
+    private ReduceTask reduceTask;
+    private AggregateTextRecordReader reader;
+    private Context context;
 
     public void init(ReduceTask reduceTask){
         int partitionNumber = reduceTask.getPartitionNumber();
@@ -39,5 +44,17 @@ abstract public class Reducer {
         context = new Context(reduceTask.getTaskId(), reduceTask.getParentJob().getOutputDir(),1);
     }
 
-    abstract void reduce(String key, Iterable<String> values, Context context);
+    public ReduceTask getReduceTask() {
+        return reduceTask;
+    }
+
+    public AggregateTextRecordReader getReader() {
+        return reader;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    abstract public void reduce(String key, Iterable<String> values, Context context);
 }

@@ -1,4 +1,6 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
+
+import cmu.cs.distsystems.hw3.io.Split;
 
 /**
  * Contains all the information that is required for completing

@@ -1,24 +1,13 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.io;
+
+import cmu.cs.distsystems.hw3.framework.ReduceUnit;
+import cmu.cs.distsystems.hw3.mapred.Record;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.PriorityQueue;
-
-/**
-*   Using K-way merge to merge kv pairs with same key in a ReduceUnit
-**/
-
-class ReduceUnit{
-    String key;
-    List<String> values;
-
-    public ReduceUnit(String key, List<String> values){
-        this.key = key;
-        this.values = values;
-    }
-}
 
 class RecordReaderWrapper implements Comparable<RecordReaderWrapper>{
     Record<String,String> record;
@@ -146,8 +135,8 @@ public class AggregateTextRecordReader implements Iterator<ReduceUnit> {
 
         while(atrr.hasNext()){
             ReduceUnit ru = atrr.next();
-            System.out.println("Key:" + ru.key);
-            for(String value:ru.values){
+            System.out.println("Key:" + ru.getKey());
+            for(String value:ru.getValues()){
                 System.out.println("Value:" + value);
                 numPair++;
             }

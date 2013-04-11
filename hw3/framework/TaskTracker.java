@@ -1,4 +1,4 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

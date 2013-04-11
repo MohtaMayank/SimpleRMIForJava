@@ -1,4 +1,4 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.mapred;
 
 import java.util.ArrayList;
 import java.util.Collections;

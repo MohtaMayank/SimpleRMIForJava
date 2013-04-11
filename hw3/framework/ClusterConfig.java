@@ -1,4 +1,4 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +22,7 @@ public class ClusterConfig {
 	private int jobTrackerClientCommPort;
 	private int numWorkers;
 	private List<WorkerConfig> workers;
+    private String simplemrJar;
 	
 	public ClusterConfig(String configFile) {
 		this.configFile = configFile;
@@ -59,7 +60,8 @@ public class ClusterConfig {
 			}
 			
 			jobTrackerHost = map.get("jobTrackerHost");
-			jobTrackerClientCommPort = Integer.parseInt(map.get("jobTrackerClientCommPort"));
+            simplemrJar = map.get("mrJar");
+            jobTrackerClientCommPort = Integer.parseInt(map.get("jobTrackerClientCommPort"));
 			jobTrackerWorkerCommPort = Integer.parseInt(map.get("jobTrackerWorkerCommPort"));
 			numWorkers = Integer.parseInt(map.get("numWorkers"));
 			
@@ -143,7 +145,10 @@ public class ClusterConfig {
 	public List<WorkerConfig> getWorkers() {
 		return workers;
 	}
-	
+
+    public String getSimplemrJar() {
+        return simplemrJar;
+    }
 }
 
 class WorkerConfig {

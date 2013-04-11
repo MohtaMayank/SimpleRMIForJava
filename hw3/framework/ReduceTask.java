@@ -1,6 +1,4 @@
-package cmu.cs.distsystems.hw3;
-
-import java.util.List;
+package cmu.cs.distsystems.hw3.framework;
 
 public class ReduceTask extends Task {
 	private static final long serialVersionUID = 1L;

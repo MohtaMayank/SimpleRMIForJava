@@ -1,6 +1,7 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.io;
 
-import java.io.BufferedReader;
+import cmu.cs.distsystems.hw3.mapred.Record;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;

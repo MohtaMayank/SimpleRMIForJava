@@ -1,16 +1,15 @@
-package cmu.cs.distsystems.hw3;
+package cmu.cs.distsystems.hw3.framework;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import cmu.cs.distsystems.hw3.JobStatus.JobState;
+import cmu.cs.distsystems.hw3.framework.JobStatus.JobState;
+import cmu.cs.distsystems.hw3.io.Split;
 
 public class ClientHandler implements Runnable {
 
@@ -70,7 +69,7 @@ public class ClientHandler implements Runnable {
         	tmpDir.mkdirs();
         }
         
-        setJobStatus(js,mapTasks,reduceTasks);
+        setJobStatus(js, mapTasks, reduceTasks);
         js.setJobState(JobState.PENDING);
 
         System.out.println("Received new job from client. Job Id = " + job.getId() + 
