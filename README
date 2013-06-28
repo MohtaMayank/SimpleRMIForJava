@@ -1,0 +1,16 @@
+Simple RMI Implementation
+
+Mayank Mohta (mmohta) and Yuchen Tian (yuchent)
+
+
+For a simple  demo, use "make demo" command.
+This command does the following:
+1. Starts a RegistryServer. Any RMI server can bind remote objects and RMI client can lookup objects
+2. Starts an RMIServer. It registers two remote objects of type GreetingGiver.
+The GreetingGiver interface has following 3 methods:
+	a. String giveGreeting(String name) : To demonstrate pass by value in RMI.
+	b. RemoteObjectRef locateGreeter(String greeterName) : To demonstrate that RemoteObjectRef can be returned by Remote method calls
+	c. String collectGreeting(String name, RemoteObjectRef) : This demonstrates that RemoteObjectRef can be passed as parameters thus enabling remote method calls to be chained
+3. Starts an RMI Client: It does lookup for remote objects and demonstrates each of the methods of the GreetingGiver.
+
+Please see the report for a detailed description of design.
